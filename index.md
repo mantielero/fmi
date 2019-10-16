@@ -1,3 +1,0 @@
-# FMI
-## Introducción
-Veremos
