@@ -9,6 +9,7 @@ theme:
 nav:
   - Introduction:
     - Objective: objective.md
+    - Example - Dahlquist equation: dq.md
 
 
 
