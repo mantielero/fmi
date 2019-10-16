@@ -1,4 +1,4 @@
-site_name: Porting FMUSDK to Nim
+site_name: Creating FMU with Nim
 
 theme:
   name: readthedocs
@@ -8,29 +8,7 @@ theme:
 
 nav:
   - Introduction:
-    - Objective: objective.md
-    - Makefile: makefile.md
-    - Métodos termodinámico y estadístico: metodos_termodinamico_estadistico.md
-    - Conceptos: conceptos.md
-    - Propiedades:
-      - Introducción: propiedades.md
-      - Presión: presion.md
-      - Densidad y volumen específico: densidad.md
-      - Temperatura (Principio Cero): temperatura.md
-    - Estado: estado.md
-    - Proceso: proceso.md
-    - Fase: fase.md
-    - Equilibrio: equilibrio.md
-    - Alcance de la termodinámica: alcance_termodinamica.md
-
-  - Primera Ley de la Termodinámica:
-    - Resumen: 1st_resumen.md
-    - Introducción: 1st_intro.md
-    - Postulado de Estado - Sistemas simples: 1st_postulado_de_estado.md
-    - Aplicaciones:
-        - Sistemas Cerrados: 1st_sistemas_cerrados.md
-        - Ciclos:
-            - Carnot: 1st_ciclo_carnot.md
+    - Objective: objectivo.md
 
 
 
