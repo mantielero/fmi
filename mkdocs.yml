@@ -10,6 +10,7 @@ nav:
   - Introduction:
     - Objective: objective.md
     - Example - Dahlquist equation: dq.md
+    - fmuTemplate.c: fmutemplate.md
 
 
 
