@@ -55,23 +55,18 @@ Then:
 // define state vector as vector of value references
 #define STATES { x_ }
 ```
-
-Then:
+### setStartValues
+The function **setStartValues** set values for all variables that define a start value. Settings used unless changed by *fmi2SetX* before *fmi2EnterInitializationMode*. This function is called by [fmuTemplate.c > fmuInstantiate](https://github.com/qtronic/fmusdk/blob/7571334f71e076b9dc22436dade6aadc9f4b2d24/fmu20/src/models/fmuTemplate.c#L186):
 ```c
-// called by fmi2Instantiate
-// Set values for all variables that define a start value
-// Settings used unless changed by fmi2SetX before fmi2EnterInitializationMode
 void setStartValues(ModelInstance *comp) {
     r(x_) = 1;
     r(k_) = 1;
 }
 ```
 
-Then:
+### calculateValues
+The function **calculateValues** is called when *setStartValues* or environment set new values through *fmi2SetXXX*. Lazy set values for all variable that are computed from other variables. It is called by: fmi2GetReal, fmi2GetInteger, fmi2GetBoolean, fmi2GetString, fmi2ExitInitialization.
 ```c
-// called by fmi2GetReal, fmi2GetInteger, fmi2GetBoolean, fmi2GetString, fmi2ExitInitialization
-// if setStartValues or environment set new values through fmi2SetXXX.
-// Lazy set values for all variable that are computed from other variables.
 void calculateValues(ModelInstance *comp) {
     //if (comp->state == modelInitializationMode) {
     //  initialization code here
@@ -80,6 +75,7 @@ void calculateValues(ModelInstance *comp) {
 }
 ```
 
+### getReal
 Then:
 ```c
 // called by fmi2GetReal, fmi2GetContinuousStates and fmi2GetDerivatives
@@ -93,6 +89,7 @@ fmi2Real getReal(ModelInstance* comp, fmi2ValueReference vr){
 }
 ```
 
+### eventUpdate
 Then:
 ```c
 // used to set the next time event, if any.
@@ -100,8 +97,8 @@ void eventUpdate(ModelInstance *comp, fmi2EventInfo *eventInfo, int isTimeEvent,
 } 
 ```
 
-Then:
+### fmuTemplate.c
+Finally, include code that implements the FMI based on the above definitions:
 ```c
-// include code that implements the FMI based on the above definitions
 #include "fmuTemplate.c"
 ```
